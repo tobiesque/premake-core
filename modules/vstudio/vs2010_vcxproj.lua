@@ -2198,8 +2198,12 @@
 
 
 	function m.compileAsManaged(fcfg, condition)
-		if fcfg.clr and fcfg ~= p.OFF then
-			m.element("CompileAsManaged", condition, "true")
+		if fcfg.clr ~= nil then
+			if (fcfg.clr ~= p.OFF) then
+				m.element("CompileAsManaged", condition, "true")
+			else
+				m.element("CompileAsManaged", condition, "false")
+			end
 		end
 	end
 
